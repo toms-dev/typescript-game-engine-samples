@@ -1,6 +1,7 @@
 
-import {Game, IComponent, Entity, MovementComponent} from "../../../../../client/index";
-import CommandSender from "../../../../../client/lib/components/common/CommandSender";
+import {Game, IComponent, Entity, MovementComponent, Command, CommandSender} from 'typescript-game-engine-client';
+import ChangeColorCommand from "./commands/ChangeColorCommand";
+
 
 // TODO: ColorButton should maybe implement UIComponent to declare the setup() method.
 export default class ColorButton implements IComponent {
@@ -14,9 +15,8 @@ export default class ColorButton implements IComponent {
 	}
 
 	setup(): void {
-		this.commandSender.add();
 		$("#colorButton").click(() => {
-
+			this.commandSender.add(new ChangeColorCommand("pink"));
 		})
 	}
 

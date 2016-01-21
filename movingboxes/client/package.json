@@ -6,9 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Tom Guillermin",
   "license": "ISC",
   "dependencies": {
-    "typescript-game-engine-client": "git+https://github.com/toms-dev/typescript-game-engine-client.git"
+    "browserify": "^13.0.0",
+    "tsify": "^0.13.2",
+    "typescript-game-engine-client": "file:..\\..\\..\\client",
+    "watchify": "^3.7.0"
   }
 }

@@ -1,5 +1,8 @@
 
-import {Game} from "../../../../client/index";
+/// <reference path="../node_modules/typescript-game-engine-client/typings.d.ts" />
+
+import {Game} from 'typescript-game-engine-client';
+
 import My2DRenderer from "./game/My2DRenderer";
 import MyTextRenderer from "./game/MyTextRenderer";
 import ColorButton from "./game/ColorButton";

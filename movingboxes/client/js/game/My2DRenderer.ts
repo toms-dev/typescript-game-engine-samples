@@ -1,5 +1,5 @@
 
-import {Game, IComponent, Entity, MovementComponent} from "../../../../../client/index";
+import {Game, IComponent, Entity, MovementComponent} from 'typescript-game-engine-client';
 
 export default class My2DRenderer implements IComponent {
 
