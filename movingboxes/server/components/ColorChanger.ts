@@ -1,10 +1,8 @@
 
-import {Declare} from "../../../../index";
-import IComponent from "../../../../lib/components/IComponent";
+import {Declare, Components, Entity} from "typescript-game-engine-server";
+import Component = Components.Component;
+
 import ColoredComponent from "./ColoredComponent";
-import Component from "../../../../lib/components/Component";
-import Entity from "../../../../lib/Entity";
-import ComponentBag from "../../../../lib/components/ComponentBag";
 
 /**
  * This server-side components makes a colored component change color on user input.

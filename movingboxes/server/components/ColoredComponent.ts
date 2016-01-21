@@ -1,8 +1,9 @@
 
-import {Declare} from "../../../../index";
-import IComponent from "../../../../lib/components/IComponent";
-import Component from "../../../../lib/components/Component";
-import ComponentBag from "../../../../lib/components/ComponentBag";
+import {Declare, Components} from "typescript-game-engine-server";
+
+import IComponent = Components.IComponent;
+import Component = Components.Component;
+import ComponentBag = Components.ComponentBag;
 
 @Declare.Component
 export default class ColoredComponent extends Component {

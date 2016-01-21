@@ -1,6 +1,6 @@
 
-import {Declare} from "../../../../index";
-import Map from "../../../../lib/Map";
+import {Declare, Map} from "typescript-game-engine-server";
+
 import MyBox from "../entities/MyBox";
 
 @Declare.Map
