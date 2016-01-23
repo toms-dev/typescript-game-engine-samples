@@ -1,11 +1,11 @@
 
-import {Declare, Entity, Components} from "../../../../index";
+import {Declare, Entity, Components} from "typescript-game-engine-server";
 
 import ColoredComponent from "../components/ColoredComponent";
 import ColorChanger from "../components/ColorChanger";
 import PathComponent from "../components/PathComponent";
 
-import Vector3 from "../../../../lib/math/Vector3";	// TODO: fix include path
+import {Vector3} from "typescript-game-engine-server/lib/math/";	// TODO: fix include path?
 
 @Declare.Entity
 export default class MyBox extends Entity {
