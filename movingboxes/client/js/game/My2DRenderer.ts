@@ -1,12 +1,36 @@
 
-import {Game, IComponent, Entity, MovementComponent} from 'typescript-game-engine-client';
+import {Game, UIComponent, Entity, MovementComponent} from 'typescript-game-engine-client';
 
-export default class My2DRenderer implements IComponent {
+export default class My2DRenderer extends UIComponent {
 
 	private game: Game;
+	private $canvas: JQuery;
+
+	public static EVENT_CLICK = "click";
 
 	constructor(game:Game) {
+		super();
 		this.game = game;
+
+		this.$canvas = $("#gameView");
+		this.$canvas.on('click', (e: MouseEvent) => {
+			// TODO: reuse camera stuff from piratefight?
+			var x: number;
+			var y: number;
+			if (e.pageX || e.pageY) {
+				x = e.pageX;
+				y = e.pageY;
+			}
+			else {
+				x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+				y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+			}
+			x -= this.$canvas.offset().left;
+			y -= this.$canvas.offset().top;
+
+			this.eventEmitter.emit("click", x, y);
+			// Stream event to others components? To parent entity?
+		});
 	}
 
 	loadState(entityData: any): void {
