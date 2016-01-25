@@ -1,0 +1,4 @@
+.idea
+
+js/game/*.js
+js/game/**.js
