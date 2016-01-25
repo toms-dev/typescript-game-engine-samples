@@ -1,7 +1,6 @@
 var path = require('path');
 
 module.exports = {
-	//entry: './js/Main2.js',
 	entry: './js/Main.ts',
 	output: {
 		filename: 'bundle.js',
@@ -23,25 +22,3 @@ module.exports = {
 		]
 	}
 };
-
-/*module.exports = {
-	entry: './js/Main.ts',
-	resolve: {
-		//extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
-		extensions: ['', '.ts']
-	},
-	output: {
-		path: path.join(__dirname, 'build'),
-		filename: 'bundle.js'
-	},
-	devtool: 'inline-source-map',
-	module: {
-		loaders: [
-			{ test: /\.ts$/, loader: 'ts-loader' },
-			{
-				test: path.join(__dirname, 'src'),
-				loader: 'babel-loader'
-			}
-		]
-	}
-};*/
