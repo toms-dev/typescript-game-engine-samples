@@ -1,17 +1,26 @@
 
 import {Game, UIComponent, Entity, MovementComponent} from 'typescript-game-engine-client';
+import {Vector3} from 'typescript-game-engine-client/lib/math';
 
 export default class My2DRenderer extends UIComponent {
 
 	private game: Game;
 	private $canvas: JQuery;
 
-	public static EVENT_CLICK = "click";
+	public static EVENT_CLICK_PX = "click";
+	public static EVENT_CLICK_COORDS = "click_coords";
+	public static EVENT_CLICK_ENTITY = "click_entity";
+
+	private scale = 30;
 
 	constructor(game:Game) {
 		super();
 		this.game = game;
 
+		this.setup();
+	}
+
+	public setup(): void {
 		this.$canvas = $("#gameView");
 		this.$canvas.on('click', (e: MouseEvent) => {
 			// TODO: reuse camera stuff from piratefight?
@@ -28,8 +37,21 @@ export default class My2DRenderer extends UIComponent {
 			x -= this.$canvas.offset().left;
 			y -= this.$canvas.offset().top;
 
-			this.eventEmitter.emit("click", x, y);
-			// Stream event to others components? To parent entity?
+			// TODO: Stream event to others components? To parent entity? or just keep this event ?
+			this.eventEmitter.emit(My2DRenderer.EVENT_CLICK_PX, x, y);
+
+			var worldX = x / this.scale;
+			var worldY = y / this.scale;
+			var worldZ = 0;
+
+			var coords = Vector3.create(worldX, worldY, worldZ);
+			this.eventEmitter.emit(My2DRenderer.EVENT_CLICK_COORDS, coords);
+
+			var entityArray = this.game.world.getEntitiesAt(coords).slice(0,1);
+			if (entityArray.length > 0) {
+				var entity = entityArray[0];
+				this.eventEmitter.emit(My2DRenderer.EVENT_CLICK_ENTITY, entity);
+			}
 		});
 	}
 
@@ -42,7 +64,7 @@ export default class My2DRenderer extends UIComponent {
 		var ctx = canvas.getContext('2d');
 		ctx.clearRect(0,0, canvas.width, canvas.height);
 
-		var scale = 30;
+		var scale = this.scale;
 
 		this.game.world.getEntities().forEach((ent: Entity) => {
 			console.warn("Warning: Renderer is using debugRawData in entity!");

@@ -4,6 +4,7 @@
   "description": "",
   "main": "Main.js",
   "scripts": {
+    "postinstall": "tsd reinstall rebundle link && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

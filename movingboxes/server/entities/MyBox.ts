@@ -1,5 +1,6 @@
 
 import {Declare, Entity, Components} from "typescript-game-engine-server";
+import {NamedEntityType} from "typescript-game-engine-server";
 
 import ColoredComponent from "../components/ColoredComponent";
 import ColorChanger from "../components/ColorChanger";
@@ -14,7 +15,7 @@ export default class MyBox extends Entity {
 	public derp = "lol";
 
 	constructor(boxColor:string) {
-		super(null, null);
+		super(null, new NamedEntityType("MyBox"));
 		var colorComponent = new ColoredComponent(boxColor);
 		this.addComponent(colorComponent);
 		var movement = new Components.Generic.Movement();
