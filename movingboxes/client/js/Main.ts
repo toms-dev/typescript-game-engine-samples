@@ -1,16 +1,20 @@
 // <reference path="../typings/tsd.d.ts" />
+// This reference is needed if compiling for AMD. It will crash stuff if used on CommonJS.
+// <reference path="../node_modules/typescript-game-engine-client/typings.d.ts" />
+
 import {Game, Entity, Loader} from 'typescript-game-engine-client';
-import {Vector3} from 'typescript-game-engine-client/lib/math';
-import DecorationContext from 'typescript-game-engine-client/lib/decorators/DecorationContext';
+import {Math} from 'typescript-game-engine-client';
+//import {Vector3} from 'typescript-game-engine-client/lib/math';
+import {DecorationContext} from 'typescript-game-engine-client';
 
 import My2DRenderer from "./game/My2DRenderer";
 import MyTextRenderer from "./game/MyTextRenderer";
 import ColorButton from "./game/ColorButton";
 import Alerter from "./game/components/Alerter";
 
-
 Loader.listen();
 import BoxEntity from "./game/BoxEntity";
+
 var context = Loader.done();
 console.log("BoxEntity: ", BoxEntity);
 
@@ -39,7 +43,7 @@ var alerter = new Alerter();
 my2DRenderer.eventEmitter.addListener(My2DRenderer.EVENT_CLICK_PX, (x:number, y: number) => {
 	//alerter.alert("Click @ "+x+","+y);
 });
-my2DRenderer.eventEmitter.addListener(My2DRenderer.EVENT_CLICK_COORDS, (coords: Vector3) => {
+my2DRenderer.eventEmitter.addListener(My2DRenderer.EVENT_CLICK_COORDS, (coords: Math.Vector3) => {
 	alerter.alert("Click @ "+JSON.stringify(coords.toJSON()));
 });
 my2DRenderer.eventEmitter.addListener(My2DRenderer.EVENT_CLICK_ENTITY, (e: Entity) => {

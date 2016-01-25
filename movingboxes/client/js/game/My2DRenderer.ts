@@ -1,6 +1,9 @@
 
-import {Game, UIComponent, Entity, MovementComponent} from 'typescript-game-engine-client';
-import {Vector3} from 'typescript-game-engine-client/lib/math';
+import {
+	Game, UIComponent, Entity, MovementComponent,
+	Math
+} from 'typescript-game-engine-client';
+//import {Vector3} from 'typescript-game-engine-client/lib/math';
 
 export default class My2DRenderer extends UIComponent {
 
@@ -44,7 +47,7 @@ export default class My2DRenderer extends UIComponent {
 			var worldY = y / this.scale;
 			var worldZ = 0;
 
-			var coords = Vector3.create(worldX, worldY, worldZ);
+			var coords = Math.Vector3.create(worldX, worldY, worldZ);
 			this.eventEmitter.emit(My2DRenderer.EVENT_CLICK_COORDS, coords);
 
 			var entityArray = this.game.world.getEntitiesAt(coords).slice(0,1);

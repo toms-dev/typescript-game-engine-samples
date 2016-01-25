@@ -2,7 +2,7 @@ var path = require('path');
 
 module.exports = {
 	//entry: './js/Main2.js',
-	entry: './js/game/Main3.js',
+	entry: './js/Main.ts',
 	output: {
 		filename: 'bundle.js',
 		path: 'build'
@@ -18,8 +18,8 @@ module.exports = {
 	module: {
 		loaders: [
 			// all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
-			//{ test: /\.tsx?$/, loader: 'babel-loader!ts-loader' },
-			{ test: /\.js$/, loader: 'babel-loader' }
+			{ test: /\.ts$/, loader: 'babel-loader!ts-loader' }
+			//{ test: /\.js$/, loader: 'babel-loader' }
 		]
 	}
 };
