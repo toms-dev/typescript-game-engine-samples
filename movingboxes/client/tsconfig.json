@@ -6,7 +6,7 @@
     "noImplicitAny": true,
     "experimentalDecorators": true
   },
-  "files": [
-    "js/Main.ts"
+  "exclude": [
+    "node_modules"
   ]
 }

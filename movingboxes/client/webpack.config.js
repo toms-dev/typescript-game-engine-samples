@@ -8,8 +8,10 @@ module.exports = {
 	},
 	devtool: 'inline-source-map',
 	resolve: {
+		root: path.join(__dirname, "js"),
 		// Add `.ts` and `.tsx` as a resolvable extension.
-		extensions: ['', '.webpack.js', '.web.js', '.js', '.ts', '.tsx']
+		//extensions: ['', '.webpack.js', '.web.js', '.js', '.ts', '.tsx']
+		extensions: ['', '.js', '.ts', '.tsx']
 	},
 	resolveLoader: {
 		root: [path.join(__dirname, 'node_modules')]

@@ -12,11 +12,17 @@ import MyTextRenderer from "./game/MyTextRenderer";
 import ColorButton from "./game/ColorButton";
 import Alerter from "./game/components/Alerter";
 
+// TODO: replace this using by loadProject, using a loader like System.import. But that will add a callback in the flow.
 Loader.listen();
+// Import all the client entities
 import BoxEntity from "./game/BoxEntity";
-
+var classes = [BoxEntity];
+/*var classes = ["game/BoxEntity"];
+Loader.loadProject(classes[0]);*/
 var context = Loader.done();
-console.log("BoxEntity: ", BoxEntity);
+
+import ClickableComponent from "./game/components/ClickableComponent";
+//var context = Loader.loadProject("game/BoxEntity");
 
 var game = new Game();
 game.loadContext(context);
@@ -39,15 +45,17 @@ game.addComponent(myTextRenderer);
 
 // Create an alerter
 var alerter = new Alerter();
+
 // Wire it to the 2D renderer
-my2DRenderer.eventEmitter.addListener(My2DRenderer.EVENT_CLICK_PX, (x:number, y: number) => {
-	//alerter.alert("Click @ "+x+","+y);
+my2DRenderer.eventEmitter.addListener(My2DRenderer.EVENT_CLICK_PX, (x: number, y: number) => {
+	// do nothing
 });
 my2DRenderer.eventEmitter.addListener(My2DRenderer.EVENT_CLICK_COORDS, (coords: Math.Vector3) => {
-	alerter.alert("Click @ "+JSON.stringify(coords.toJSON()));
+	alerter.alert("Click @ " + JSON.stringify(coords.toJSON()));
 });
 my2DRenderer.eventEmitter.addListener(My2DRenderer.EVENT_CLICK_ENTITY, (e: Entity) => {
-	alerter.alert("Click on "+e.guid);
+	alerter.alert("Click on " + e.guid);
+	e.emitEvent(My2DRenderer.EVENT_CLICK_ENTITY, e);
 });
 
 var button = new ColorButton(game.commandSender);

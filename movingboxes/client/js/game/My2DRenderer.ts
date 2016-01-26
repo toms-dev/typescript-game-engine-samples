@@ -3,6 +3,7 @@ import {
 	Game, UIComponent, Entity, MovementComponent,
 	Math
 } from 'typescript-game-engine-client';
+import ColorComponent from "./components/ColorComponent";
 //import {Vector3} from 'typescript-game-engine-client/lib/math';
 
 export default class My2DRenderer extends UIComponent {
@@ -62,6 +63,10 @@ export default class My2DRenderer extends UIComponent {
 
 	}
 
+	receiveEvent(eventName: string, args: any[]): void {
+
+	}
+
 	tick(delta: number, now: number): void {
 		var canvas: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById('gameView');
 		var ctx = canvas.getContext('2d');
@@ -78,8 +83,14 @@ export default class My2DRenderer extends UIComponent {
 			var raw = (<any> ent).debugRawData;
 			var pos = raw.position;
 
-			var color = raw.colorName;
-			ctx.fillStyle = color ? color: "red";
+			var colorComp = ent.getComponent(ColorComponent);
+			var color = colorComp.color; //raw.colorName;
+			var borderColor = colorComp.borderColor;
+			ctx.fillStyle = color ? color: "black";
+			ctx.strokeStyle = borderColor;
+			ctx.lineWidth = 4;
+
+			ctx.strokeRect(pos.x * scale, pos.y * scale, 50, 50);
 			ctx.fillRect(pos.x * scale, pos.y * scale, 50, 50);
 		});
 	}

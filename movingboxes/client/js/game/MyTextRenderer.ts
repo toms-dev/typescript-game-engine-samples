@@ -13,6 +13,9 @@ export default class MyTextRenderer implements IComponent {
 
 	}
 
+	receiveEvent(eventName: string, args: any[]): void {
+	}
+
 	tick(delta: number, now: number): void {
 		$("#log").empty();
 

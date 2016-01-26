@@ -30,4 +30,7 @@ export default class ColorButton extends UIComponent {
 		// do nothing
 	}
 
+	receiveEvent(eventName: string, args: any[]): void {
+	}
+
 }
