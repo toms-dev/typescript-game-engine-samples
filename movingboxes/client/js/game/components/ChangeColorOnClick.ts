@@ -1,5 +1,5 @@
 
-import {Entity, IComponent} from "typescript-game-engine-client";
+import {Entity, IComponent, GameEvent} from "typescript-game-engine-client";
 import EntityClickAdapter from "./EntityClickAdapter";
 import ColorComponent from "./ColorComponent";
 
@@ -15,10 +15,10 @@ export default class ChangeColorOnClick implements IComponent {
 		this.colorID = 0;
 	}
 
-	receiveEvent(eventName: string, args: any[]): void {
+	receiveEvent(event: GameEvent): void {
 		// Bind the event
-		console.debug("GOT EVENT:"+ eventName);
-		if (eventName == EntityClickAdapter.EVENT_CLICK) {
+		console.debug("GOT EVENT:"+ event.name);
+		if (event.name == EntityClickAdapter.EVENT_CLICK) {
 			console.debug("CHANGING COLOR!");
 			this.changeColor();
 		}

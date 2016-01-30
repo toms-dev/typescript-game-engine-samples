@@ -1,6 +1,6 @@
 
 //import {IComponent} from "typescript-game-engine-client";
-import {IComponent, Entity} from "typescript-game-engine-client";
+import {IComponent, Entity, GameEvent} from "typescript-game-engine-client";
 import {MovementComponent} from "typescript-game-engine-client";
 
 interface ClickCallback {
@@ -28,7 +28,7 @@ export default class ClickableComponent implements IComponent {
 	tick(delta:number, now:number):void {
 	}
 
-	receiveEvent(eventName: string, args: any[]): void {
+	receiveEvent(event: GameEvent): void {
 	}
 
 	public onClick(): void {

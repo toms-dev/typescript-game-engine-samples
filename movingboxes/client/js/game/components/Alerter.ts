@@ -1,5 +1,4 @@
-
-import {IComponent} from "typescript-game-engine-client";
+import {IComponent, GameEvent} from "typescript-game-engine-client";
 
 export default class Alerter implements IComponent {
 
@@ -14,7 +13,7 @@ export default class Alerter implements IComponent {
 	tick(delta:number, now:number):void {
 	}
 
-	receiveEvent(eventName: string, args: any[]): void {
+	receiveEvent(event: GameEvent): void {
 	}
 
 }

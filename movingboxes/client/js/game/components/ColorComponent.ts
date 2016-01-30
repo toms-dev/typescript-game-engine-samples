@@ -1,4 +1,4 @@
-import {Entity, IComponent} from "typescript-game-engine-client";
+import {Entity, IComponent, GameEvent} from "typescript-game-engine-client";
 
 export default class ColorComponent implements IComponent {
 
@@ -12,7 +12,7 @@ export default class ColorComponent implements IComponent {
 	tick(delta: number, now: number): void {
 	}
 
-	receiveEvent(eventName: string, args: any[]): void {
+	receiveEvent(event: GameEvent): void {
 	}
 
 	public changeColor(newColor: string): void {

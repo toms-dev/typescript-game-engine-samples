@@ -2,10 +2,10 @@
 // This reference is needed if compiling for AMD. It will crash stuff if used on CommonJS.
 // <reference path="../node_modules/typescript-game-engine-client/typings.d.ts" />
 
-import {Game, Entity, Loader} from 'typescript-game-engine-client';
+import {Game, Entity, GameEvent} from 'typescript-game-engine-client';
 import {Math} from 'typescript-game-engine-client';
 //import {Vector3} from 'typescript-game-engine-client/lib/math';
-import {DecorationContext} from 'typescript-game-engine-client';
+import {Loader, DecorationContext} from 'typescript-game-engine-client';
 
 import My2DRenderer from "./game/My2DRenderer";
 import MyTextRenderer from "./game/MyTextRenderer";
@@ -55,7 +55,7 @@ my2DRenderer.eventEmitter.addListener(My2DRenderer.EVENT_CLICK_COORDS, (coords: 
 });
 my2DRenderer.eventEmitter.addListener(My2DRenderer.EVENT_CLICK_ENTITY, (e: Entity) => {
 	alerter.alert("Click on " + e.guid);
-	e.emitEvent(My2DRenderer.EVENT_CLICK_ENTITY, e);
+	e.emitEvent(new GameEvent(My2DRenderer.EVENT_CLICK_ENTITY, [e], e));
 });
 
 var button = new ColorButton(game.commandSender);

@@ -1,5 +1,5 @@
 
-import {Game, IComponent, Entity, MovementComponent} from 'typescript-game-engine-client';
+import {Game, IComponent, Entity, MovementComponent, GameEvent} from 'typescript-game-engine-client';
 
 export default class MyTextRenderer implements IComponent {
 
@@ -13,7 +13,7 @@ export default class MyTextRenderer implements IComponent {
 
 	}
 
-	receiveEvent(eventName: string, args: any[]): void {
+	receiveEvent(event: GameEvent): void {
 	}
 
 	tick(delta: number, now: number): void {

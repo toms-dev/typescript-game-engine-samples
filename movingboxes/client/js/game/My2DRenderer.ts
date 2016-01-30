@@ -1,6 +1,7 @@
 
 import {
 	Game, UIComponent, Entity, MovementComponent,
+	GameEvent,
 	Math
 } from 'typescript-game-engine-client';
 import ColorComponent from "./components/ColorComponent";
@@ -63,7 +64,7 @@ export default class My2DRenderer extends UIComponent {
 
 	}
 
-	receiveEvent(eventName: string, args: any[]): void {
+	receiveEvent(event: GameEvent): void {
 
 	}
 

@@ -1,6 +1,6 @@
 
 //import {Game, IComponent, Entity, MovementComponent, Command, CommandSender} from 'typescript-game-engine-client';
-import {UIComponent, CommandSender} from 'typescript-game-engine-client';
+import {UIComponent, CommandSender, GameEvent} from 'typescript-game-engine-client';
 import ChangeColorCommand from "./commands/ChangeColorCommand";
 
 
@@ -30,7 +30,7 @@ export default class ColorButton extends UIComponent {
 		// do nothing
 	}
 
-	receiveEvent(eventName: string, args: any[]): void {
+	receiveEvent(event: GameEvent): void {
 	}
 
 }
