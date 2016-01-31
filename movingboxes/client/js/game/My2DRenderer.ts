@@ -5,8 +5,11 @@ import {
 	Math
 } from 'typescript-game-engine-client';
 import ColorComponent from "./components/ColorComponent";
-//import {Vector3} from 'typescript-game-engine-client/lib/math';
 
+/**
+ * This is a UI component that is in charge of performing a simple 2D rendering on a canvas. It uses game state on
+ * each tick.
+ */
 export default class My2DRenderer extends UIComponent {
 
 	private $canvas: JQuery;
@@ -19,6 +22,9 @@ export default class My2DRenderer extends UIComponent {
 
 	private debug_warned: boolean = false;
 
+	/**
+	 * Here we have to listen on the canvas for some clicks.
+	 */
 	public setup(): void {
 		this.$canvas = $("#gameView");
 		this.$canvas.on('click', (e: MouseEvent) => {
@@ -55,13 +61,18 @@ export default class My2DRenderer extends UIComponent {
 	}
 
 	loadState(entityData: any): void {
-
+		// do nothing
 	}
 
 	receiveEvent(event: GameEvent): void {
-
+		// do nothing
 	}
 
+	/**
+	 * That's were all the rendering magic happens
+	 * @param delta
+	 * @param now
+	 */
 	tick(delta: number, now: number): void {
 		var canvas: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById('gameView');
 		var ctx = canvas.getContext('2d');
@@ -69,18 +80,15 @@ export default class My2DRenderer extends UIComponent {
 
 		var scale = this.scale;
 
+		// Iterate over the entities to draw them.
 		this.game.world.getEntities().forEach((ent: Entity) => {
-			if (!this.debug_warned) {
-				this.debug_warned = true;
-				console.warn("Warning: Renderer is using debugRawData in entity!");
-			}
-
 			var pos = ent.getComponent(MovementComponent).getPosition();
-			var id = ent.guid;
 
 			var colorComp = ent.getComponent(ColorComponent);
-			var color = colorComp.color; //raw.colorName;
+			var color = colorComp.color;
 			var borderColor = colorComp.borderColor;
+
+			//Build the shape from the business data
 			ctx.fillStyle = color ? color: "orange";
 			ctx.strokeStyle = borderColor;
 			ctx.lineWidth = 4;
@@ -88,6 +96,7 @@ export default class My2DRenderer extends UIComponent {
 			ctx.strokeRect(pos.x * scale, pos.y * scale, 50, 50);
 			ctx.fillRect(pos.x * scale, pos.y * scale, 50, 50);
 
+			// Display their name
 			ctx.strokeStyle = "black";
 			ctx.lineWidth = 1;
 			ctx.textAlign = "center";

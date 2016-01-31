@@ -1,5 +1,8 @@
 import {Game, IComponent, Entity, MovementComponent, GameEvent} from 'typescript-game-engine-client';
 
+/**
+ * In the same way as My2DRenderer, this text renderer updates information in the GUI.
+ */
 export default class MyTextRenderer implements IComponent {
 
 	private game: Game;
@@ -10,27 +13,20 @@ export default class MyTextRenderer implements IComponent {
 	}
 
 	loadState(entityData: any): void {
-
+		// do nothing
 	}
 
 	receiveEvent(event: GameEvent): void {
+		// do nothing
 	}
 
 	tick(delta: number, now: number): void {
 		$("#log").empty();
 
 		this.game.world.getEntities().forEach((ent: Entity) => {
-			if (!this.debug_warned) {
-				this.debug_warned = true;
-				console.warn("Warning: Renderer is using debugRawData in entity!");
-			}
-			// TODO: should not use debugRawData but movement component instead. There is a problem
-			// in the state loading system.
-			/*var movement = ent.getComponent(MovementComponent);
-			 var pos = movement.getPosition().toJSON();*/
-			var raw = (<any> ent).debugRawData;
-			var pos = raw.position;
-
+			// Retrieve the position from the component
+			var pos = ent.getComponent(MovementComponent).getPosition();
+			// and display its value
 			$("<div>").text("Position:" + JSON.stringify(pos)).appendTo("#log");
 		});
 	}

@@ -1,5 +1,9 @@
 import {Entity, IComponent, GameEvent, IGameEventReceiver} from "typescript-game-engine-client";
 
+/**
+ * This is a very basic component holding some business state (here a background and border color).
+ * It can generate events when changed locally.
+ */
 export default class ColorComponent implements IComponent {
 
 	public color: string;

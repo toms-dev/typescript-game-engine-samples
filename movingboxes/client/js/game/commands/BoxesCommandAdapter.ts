@@ -5,6 +5,9 @@ var BoxesCommands = {
 	"CHANGE_COLOR": "COMMAND_CHANGE_COLOR"
 };
 
+/**
+ * This class is in charge of routing the local business events to server commands.
+ */
 export default class BoxesCommandAdapter extends CommandAdapter {
 
 	setupBindings(): void {

@@ -2,7 +2,7 @@ import {Entity, IComponent, EventAdapter} from "typescript-game-engine-client";
 import My2DRenderer from "../My2DRenderer";
 
 /**
- * This class adapt all UI events to Entity click.
+ * This class adapt all UI events to Entity click. See the AlertAdapter for more explanation and examples.
  */
 export default class EntityClickAdapter extends EventAdapter {
 

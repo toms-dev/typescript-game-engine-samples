@@ -1,5 +1,4 @@
 import {Declare, Game, Entity, EntityTyping, MovementComponent} from "typescript-game-engine-client";
-import ClickableComponent from "./components/ClickableComponent";
 import ColorComponent from "./components/ColorComponent";
 import EntityClickAdapter from "./components/EntityClickAdapter";
 import ChangeColorOnClick from "./components/ChangeColorOnClick";

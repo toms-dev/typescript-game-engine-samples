@@ -3,6 +3,9 @@ import {Entity, IComponent, GameEvent} from "typescript-game-engine-client";
 import EntityClickAdapter from "./EntityClickAdapter";
 import ColorComponent from "./ColorComponent";
 
+/**
+ * This class is in charge of changing the color of a ColoredComponent when a click on the component's host occurs.
+ */
 export default class ChangeColorOnClick implements IComponent {
 
 	private entity: Entity;
