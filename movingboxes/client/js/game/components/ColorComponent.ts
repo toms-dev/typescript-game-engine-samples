@@ -13,6 +13,7 @@ export default class ColorComponent implements IComponent {
 
 	loadState(entityData: any): void {
 		this.color = entityData.colorName;
+		this.borderColor = this.color;
 	}
 
 	tick(delta: number, now: number): void {
@@ -22,6 +23,7 @@ export default class ColorComponent implements IComponent {
 	}
 
 	public changeColor(newColor: string): void {
+		// The border color is changed immediately, while the background one is processed by the server.
 		this.borderColor = newColor;
 		console.debug("New border color is: " + newColor);
 
