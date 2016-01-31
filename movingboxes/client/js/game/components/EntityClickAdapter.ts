@@ -6,7 +6,7 @@ import My2DRenderer from "../My2DRenderer";
  */
 export default class EntityClickAdapter extends EventAdapter {
 
-	static EVENT_CLICK = "EVENT_ENTITY_CLICK";
+	static EVENT_CLICK = "EVENT_CLICK";
 
 	constructor(entity: Entity) {
 		super(entity);

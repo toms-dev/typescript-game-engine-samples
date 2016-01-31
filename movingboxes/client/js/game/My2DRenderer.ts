@@ -9,7 +9,6 @@ import ColorComponent from "./components/ColorComponent";
 
 export default class My2DRenderer extends UIComponent {
 
-	private game: Game;
 	private $canvas: JQuery;
 
 	public static EVENT_CLICK_PX = "click";
@@ -19,13 +18,6 @@ export default class My2DRenderer extends UIComponent {
 	private scale = 30;
 
 	private debug_warned: boolean = false;
-
-	constructor(game:Game) {
-		super();
-		this.game = game;
-
-		this.setup();
-	}
 
 	public setup(): void {
 		this.$canvas = $("#gameView");
@@ -45,19 +37,19 @@ export default class My2DRenderer extends UIComponent {
 			y -= this.$canvas.offset().top;
 
 			// TODO: Stream event to others components? To parent entity? or just keep this event ?
-			this.eventEmitter.emit(My2DRenderer.EVENT_CLICK_PX, x, y);
+			this.fireEvent(new GameEvent(My2DRenderer.EVENT_CLICK_PX, [x, y], this));
 
 			var worldX = x / this.scale;
 			var worldY = y / this.scale;
 			var worldZ = 0;
 
 			var coords = Math.Vector3.create(worldX, worldY, worldZ);
-			this.eventEmitter.emit(My2DRenderer.EVENT_CLICK_COORDS, coords);
+			this.fireEvent(new GameEvent(My2DRenderer.EVENT_CLICK_COORDS, [coords], this));
 
 			var entityArray = this.game.world.getEntitiesAt(coords).slice(0,1);
 			if (entityArray.length > 0) {
 				var entity = entityArray[0];
-				this.eventEmitter.emit(My2DRenderer.EVENT_CLICK_ENTITY, entity);
+				this.fireEvent(new GameEvent(My2DRenderer.EVENT_CLICK_ENTITY, [entity], this));
 			}
 		});
 	}

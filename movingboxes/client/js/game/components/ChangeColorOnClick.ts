@@ -18,7 +18,9 @@ export default class ChangeColorOnClick implements IComponent {
 	receiveEvent(event: GameEvent): void {
 		// Bind the event
 		if (event.name == EntityClickAdapter.EVENT_CLICK) {
-			console.debug("Triggering color change on target component!");
+			var sourceEntity = event.params[0];
+			if (sourceEntity != this.entity) return;
+			console.debug("Triggering color change on "+this.entity.toString());
 			this.changeColor();
 		}
 	}
