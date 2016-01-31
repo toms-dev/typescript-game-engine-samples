@@ -17,9 +17,8 @@ export default class ChangeColorOnClick implements IComponent {
 
 	receiveEvent(event: GameEvent): void {
 		// Bind the event
-		console.debug("GOT EVENT:"+ event.name);
 		if (event.name == EntityClickAdapter.EVENT_CLICK) {
-			console.debug("CHANGING COLOR!");
+			console.debug("Triggering color change on target component!");
 			this.changeColor();
 		}
 	}
@@ -33,8 +32,6 @@ export default class ChangeColorOnClick implements IComponent {
 	private changeColor(): void {
 		// TODO: this is not optimal, see https://github.com/toms-dev/typescript-game-engine-client/issues/2
 		this.entity.getComponent(ColorComponent).changeColor(this.getNextColor());
-
-		// TODO: send command to server
 	}
 
 	loadState(entityData: any): void {

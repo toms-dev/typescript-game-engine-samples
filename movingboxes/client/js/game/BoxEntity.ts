@@ -12,7 +12,7 @@ export default class BoxEntity extends Entity {
 		super(game);
 
 		this.addComponent(new MovementComponent(this));
-		this.addComponent(new ColorComponent());
+		this.addComponent(new ColorComponent(game)); // TODO: this should be the entity.
 		this.addComponent(new EntityClickAdapter(this));
 		this.addComponent(new ChangeColorOnClick(this));
 	}

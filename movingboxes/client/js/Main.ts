@@ -22,9 +22,11 @@ Loader.loadProject(classes[0]);*/
 var context = Loader.done();
 
 import ClickableComponent from "./game/components/ClickableComponent";
+import BoxesCommandAdapter from "./game/commands/BoxesCommandAdapter";
 //var context = Loader.loadProject("game/BoxEntity");
 
 var game = new Game();
+game.fakeLocalLag = 500;
 game.loadContext(context);
 game.start();
 
@@ -60,3 +62,5 @@ my2DRenderer.eventEmitter.addListener(My2DRenderer.EVENT_CLICK_ENTITY, (e: Entit
 
 var button = new ColorButton(game.commandSender);
 game.addComponent(button);
+
+game.commandAdapters.push(new BoxesCommandAdapter(game));

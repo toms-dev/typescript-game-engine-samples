@@ -18,6 +18,8 @@ export default class My2DRenderer extends UIComponent {
 
 	private scale = 30;
 
+	private debug_warned: boolean = false;
+
 	constructor(game:Game) {
 		super();
 		this.game = game;
@@ -76,7 +78,10 @@ export default class My2DRenderer extends UIComponent {
 		var scale = this.scale;
 
 		this.game.world.getEntities().forEach((ent: Entity) => {
-			console.warn("Warning: Renderer is using debugRawData in entity!");
+			if (!this.debug_warned) {
+				this.debug_warned = true;
+				console.warn("Warning: Renderer is using debugRawData in entity!");
+			}
 			// TODO: should not use debugRawData but movement component instead. There is a problem
 			// in the state loading system.
 			/*var movement = ent.getComponent(MovementComponent);
