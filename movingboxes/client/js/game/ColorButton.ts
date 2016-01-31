@@ -19,7 +19,7 @@ export default class ColorButton extends UIComponent {
 	setup(): void {
 		$("#colorButton").click(() => {
 			throw "NOPE";
-			this.commandSender.add(new ChangeColorCommand("pink"));
+			//this.commandSender.add(new ChangeColorCommand("pink"));
 		})
 	}
 

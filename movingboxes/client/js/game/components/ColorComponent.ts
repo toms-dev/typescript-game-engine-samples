@@ -5,10 +5,10 @@ export default class ColorComponent implements IComponent {
 	public color: string;
 	public borderColor: string = "black";
 	public static EVENT_COLOR_CHANGE = "EVENT_COLOR_CHANGE";
-	private parent: IGameEventReceiver;
+	private entity: Entity;
 
-	constructor(parent: IGameEventReceiver) {
-		this.parent = parent;
+	constructor(parent: Entity) {
+		this.entity = parent;
 	}
 
 	loadState(entityData: any): void {
@@ -26,8 +26,10 @@ export default class ColorComponent implements IComponent {
 		console.debug("New border color is: " + newColor);
 
 		// Generating an event
-		var event = new GameEvent(ColorComponent.EVENT_COLOR_CHANGE, [newColor], this);
-		event.propagate([this.parent]);
+		var eventData = {newColor: newColor, targetEntityID: this.entity.guid};
+		// TODO: remove the brackets around [eventData]
+		var event = new GameEvent(ColorComponent.EVENT_COLOR_CHANGE, [eventData], this);
+		event.propagate([this.entity.game]);
 	}
 
 }

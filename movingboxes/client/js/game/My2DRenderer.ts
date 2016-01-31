@@ -92,7 +92,7 @@ export default class My2DRenderer extends UIComponent {
 			var colorComp = ent.getComponent(ColorComponent);
 			var color = colorComp.color; //raw.colorName;
 			var borderColor = colorComp.borderColor;
-			ctx.fillStyle = color ? color: "black";
+			ctx.fillStyle = color ? color: "orange";
 			ctx.strokeStyle = borderColor;
 			ctx.lineWidth = 4;
 

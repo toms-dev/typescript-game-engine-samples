@@ -16,7 +16,7 @@ export default class MyBox extends Entity {
 
 	constructor(boxColor:string) {
 		super(null, new NamedEntityType("MyBox"));
-		var colorComponent = new ColoredComponent(boxColor);
+		var colorComponent = new ColoredComponent(this, boxColor);
 		this.addComponent(colorComponent);
 		var movement = new Components.Generic.Movement();
 		movement.setPosition(Vector3.create(Math.random()*3, Math.random()*3,0));

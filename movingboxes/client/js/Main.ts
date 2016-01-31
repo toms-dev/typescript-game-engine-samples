@@ -26,7 +26,7 @@ import BoxesCommandAdapter from "./game/commands/BoxesCommandAdapter";
 //var context = Loader.loadProject("game/BoxEntity");
 
 var game = new Game();
-game.fakeLocalLag = 500;
+//game.fakeLocalLag = 500;
 game.loadContext(context);
 game.start();
 

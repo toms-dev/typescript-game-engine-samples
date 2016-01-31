@@ -11,7 +11,7 @@ import ColoredComponent from "./ColoredComponent";
 export default class ColorChanger extends Component {
 
 	public target: ColoredComponent;
-	public EVENT_COLOR_CHANGE = "EVENT_COLOR_CHANGE";
+	public EVENT_COLOR_CHANGE = "COMMAND_COLOR_CHANGE";
 
 	constructor(target: ColoredComponent) {
 		super();
