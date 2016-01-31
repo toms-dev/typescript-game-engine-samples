@@ -74,12 +74,9 @@ export default class My2DRenderer extends UIComponent {
 				this.debug_warned = true;
 				console.warn("Warning: Renderer is using debugRawData in entity!");
 			}
-			// TODO: should not use debugRawData but movement component instead. There is a problem
-			// in the state loading system.
-			/*var movement = ent.getComponent(MovementComponent);
-			var pos = movement.getPosition().toJSON();*/
-			var raw = (<any> ent).debugRawData;
-			var pos = raw.position;
+
+			var pos = ent.getComponent(MovementComponent).getPosition();
+			var id = ent.guid;
 
 			var colorComp = ent.getComponent(ColorComponent);
 			var color = colorComp.color; //raw.colorName;
@@ -90,6 +87,13 @@ export default class My2DRenderer extends UIComponent {
 
 			ctx.strokeRect(pos.x * scale, pos.y * scale, 50, 50);
 			ctx.fillRect(pos.x * scale, pos.y * scale, 50, 50);
+
+			ctx.strokeStyle = "black";
+			ctx.lineWidth = 1;
+			ctx.textAlign = "center";
+			var text = ent.toString();
+			ctx.strokeText(text, pos.x * scale + 25, pos.y * scale + 25, 50);
+
 		});
 	}
 
