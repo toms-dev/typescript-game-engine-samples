@@ -11,7 +11,9 @@ export default class BoxEntity extends Entity {
 	constructor(game: Game) {
 		super(game);
 
-		this.addComponent(new MovementComponent(this));
+		var movement = new MovementComponent(this);
+		movement.radius = 3;
+		this.addComponent(movement);
 		this.addComponent(new ColorComponent(this));
 		this.addComponent(new EntityClickAdapter(this));
 		this.addComponent(new ChangeColorOnClick(this));
