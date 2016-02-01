@@ -1,9 +1,5 @@
 
-/**
- * Created by Tom on 31/01/2016.
- */
-
-// TODO : do it
+// TODO : remove it? what we actually need is a controller rather than a simple adapter.
 export default class BoxesCommandsAdapter {
 
 }
