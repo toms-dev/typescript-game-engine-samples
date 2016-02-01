@@ -17,7 +17,10 @@ export default class ColorComponent implements IComponent {
 
 	loadState(entityData: any): void {
 		this.color = entityData.colorName;
-		this.borderColor = this.color;
+		// Set border color from state only once
+		if (!this.borderColor) {
+			this.borderColor = this.color;
+		}
 	}
 
 	tick(delta: number, now: number): void {

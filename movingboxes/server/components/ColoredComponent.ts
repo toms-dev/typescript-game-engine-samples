@@ -35,4 +35,10 @@ export default class ColoredComponent extends Component {
 		}
 	}
 
+	changeColor(newColor: string): void {
+		this.colorName = newColor;
+
+		//TODO: this.entity.fireEvent(new GameEvent("EVENT_COLOR_CHANGE"));
+	}
+
 }

@@ -1,5 +1,7 @@
 import {Controller, CommandRequestJSON} from "typescript-game-engine-server";
 import MyBox from "../entities/MyBox";
+import ColorChanger from "../components/ColorChanger";
+import ColoredComponent from "../components/ColoredComponent";
 
 export default class BoxesMainController extends Controller {
 
@@ -25,7 +27,10 @@ export default class BoxesMainController extends Controller {
 	}
 
 	receiveCommand(command: CommandRequestJSON): void {
-		console.log("Box received command: ", command);
+		if (command.name == "COMMAND_CHANGE_COLOR") {
+			var newColor = command.data.newColor;
+			this.playerBox.getComponent(ColoredComponent).changeColor(newColor);
+		}
 	}
 
 }
