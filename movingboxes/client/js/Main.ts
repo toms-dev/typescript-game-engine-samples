@@ -15,7 +15,7 @@ import {Loader, DecorationContext} from 'typescript-game-engine-client';
 // Do the custom libs imports
 import My2DRenderer from "./game/My2DRenderer";
 import MyTextRenderer from "./game/MyTextRenderer";
-import ColorButton from "./game/SomeButton";
+import ColorButton from "./game/ui/SomeButton";
 import Alerter from "./game/components/Alerter";
 
 // Load the entities with the Loader activated, otherwise, the framework will have a bad time unmarshalling your
@@ -29,6 +29,7 @@ var context = Loader.done();	// The context contains all the declarations that w
 
 import BoxesCommandAdapter from "./game/commands/BoxesCommandAdapter";
 import AlertAdapter from "./game/components/AlertAdapter";
+import NameInput from "./game/ui/NameInput";
 
 // The user shouldn't have to do that.
 var game = new Game();
@@ -61,6 +62,7 @@ game.addComponent(alerterAdapter);
 // Create a button that will generate some events
 var button = new ColorButton(game);
 game.addComponent(button);
+game.addComponent(new NameInput(game));
 
 // Add the main command adapter that will convert events into commands for the server
 game.commandAdapters.push(new BoxesCommandAdapter(game));

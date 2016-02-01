@@ -1,6 +1,6 @@
 import {Entity, IComponent, EventAdapter, IGameEventEmitter} from "typescript-game-engine-client";
 import My2DRenderer from "../My2DRenderer";
-import ColorButton from "../SomeButton";
+import ColorButton from "../ui/SomeButton";
 import Alerter from "./Alerter";
 
 /**

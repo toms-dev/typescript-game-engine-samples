@@ -1,5 +1,6 @@
 import {Entity, IComponent, GameEvent, MovementComponent} from "typescript-game-engine-client";
 import ColorComponent from "./ColorComponent";
+import NameComponent from "./NameComponent";
 
 /**
  * This class acts as an adapter between the entity state and its visual representation.
@@ -9,11 +10,13 @@ export default class Simple2DEntityRenderer implements IComponent {
 	private entity: Entity;
 	private movement: MovementComponent;
 	private color: ColorComponent;
+	private name: NameComponent;
 
-	constructor(entity: Entity, movement: MovementComponent, color: ColorComponent) {
+	constructor(entity: Entity, movement: MovementComponent, color: ColorComponent, name: NameComponent) {
 		this.entity = entity;
 		this.movement = movement;
 		this.color = color;
+		this.name = name;
 	}
 
 	loadState(entityData: any): void {
@@ -44,7 +47,7 @@ export default class Simple2DEntityRenderer implements IComponent {
 		ctx.strokeStyle = "black";
 		ctx.lineWidth = 1;
 		ctx.textAlign = "center";
-		var text = this.entity.toString();
+		var text = this.name.getName();//this.entity.toString();
 		ctx.strokeText(text, pos.x * scale + 25, pos.y * scale + 25, 50);
 	}
 

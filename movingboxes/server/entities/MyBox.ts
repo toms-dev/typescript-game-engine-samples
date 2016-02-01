@@ -6,7 +6,8 @@ import ColoredComponent from "../components/ColoredComponent";
 import ColorChanger from "../components/ColorChanger";
 import PathComponent from "../components/PathComponent";
 
-import {Vector3} from "typescript-game-engine-server/lib/math/";	// TODO: fix include path?
+import {Vector3} from "typescript-game-engine-server/lib/math/";
+import NameComponent from "../components/NameComponent";	// TODO: fix include path?
 
 @Declare.Entity
 export default class MyBox extends Entity {
@@ -22,6 +23,7 @@ export default class MyBox extends Entity {
 		movement.setPosition(Vector3.create(Math.random()*3, Math.random()*3,0));
 		this.addComponent(movement);
 		this.addComponent(new PathComponent(movement));
+		this.addComponent(new NameComponent("DefaultServerName"));
 		//this.addComponent(new ColorChanger(colorComponent));
 
 		//console.warn("Making box "+this+" move!");
