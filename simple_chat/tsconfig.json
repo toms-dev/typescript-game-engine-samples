@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "experimentalDecorators": true
+  },
+  "scripts": {
+    "postinstall": "browserify js/Main.js -o js/bundle.js",
+    "start": "npm run watch",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "webpack": "webpack"
+  },
+  "exclude": [
+    "node_modules",
+    "typings"
+  ]
+}
