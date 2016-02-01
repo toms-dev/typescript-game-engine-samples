@@ -5,6 +5,7 @@ import {
 	Math
 } from 'typescript-game-engine-client';
 import ColorComponent from "./components/ColorComponent";
+import SimpleEntityRenderer from "./components/SimpleEntityRenderer";
 
 /**
  * This is a UI component that is in charge of performing a simple 2D rendering on a canvas. It uses game state on
@@ -82,27 +83,12 @@ export default class My2DRenderer extends UIComponent {
 
 		// Iterate over the entities to draw them.
 		this.game.world.getEntities().forEach((ent: Entity) => {
-			var pos = ent.getComponent(MovementComponent).getPosition();
-
-			var colorComp = ent.getComponent(ColorComponent);
-			var color = colorComp.color;
-			var borderColor = colorComp.borderColor;
-
-			//Build the shape from the business data
-			ctx.fillStyle = color ? color: "orange";
-			ctx.strokeStyle = borderColor;
-			ctx.lineWidth = 4;
-
-			ctx.strokeRect(pos.x * scale, pos.y * scale, 50, 50);
-			ctx.fillRect(pos.x * scale, pos.y * scale, 50, 50);
-
-			// Display their name
-			ctx.strokeStyle = "black";
-			ctx.lineWidth = 1;
-			ctx.textAlign = "center";
-			var text = ent.toString();
-			ctx.strokeText(text, pos.x * scale + 25, pos.y * scale + 25, 50);
-
+			// TODO: instead of getting explicitely the SimpleEntityRenderer, we should be able to retrieve all the
+			// entity renderers that were designed to work with My2DRenderer.
+			var entityRendering = ent.getComponent(SimpleEntityRenderer);
+			if (entityRendering) {
+				entityRendering.draw(ctx, scale);
+			}
 		});
 	}
 
