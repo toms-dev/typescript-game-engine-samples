@@ -39,8 +39,9 @@ export default class BoxesMainController extends Controller {
 
 		// Create the player-controlled entity
 		var playerBox = new MyBox("orange");
-		playerBox.getComponent(NameComponent).changeName(boxName);
 		this.world.addEntity(playerBox);
+
+		// Note: The processing of the name will be performed by the sub controller (BoxesGameplayController).
 
 		var gameplayController = new BoxesGameplayController(playerBox);
 		this.addChildController(gameplayController);
