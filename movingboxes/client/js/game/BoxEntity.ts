@@ -2,7 +2,7 @@ import {Declare, Game, Entity, EntityTyping, MovementComponent} from "typescript
 import ColorComponent from "./components/ColorComponent";
 import EntityClickAdapter from "./components/EntityClickAdapter";
 import ChangeColorOnClick from "./components/ChangeColorOnClick";
-import SimpleEntityRenderer from "./components/SimpleEntityRenderer";
+import SimpleEntityRenderer from "./components/Simple2DEntityRenderer";
 
 @Declare.Entity
 @Declare.EntityTyping(new EntityTyping.Named("MyBox"))	// "MyBox" is the server-side name.

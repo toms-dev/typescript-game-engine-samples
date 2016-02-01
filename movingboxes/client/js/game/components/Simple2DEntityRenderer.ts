@@ -4,7 +4,7 @@ import ColorComponent from "./ColorComponent";
 /**
  * This class acts as an adapter between the entity state and its visual representation.
  */
-export default class SimpleEntityRenderer implements IComponent {
+export default class Simple2DEntityRenderer implements IComponent {
 
 	private entity: Entity;
 	private movement: MovementComponent;

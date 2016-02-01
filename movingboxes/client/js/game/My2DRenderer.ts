@@ -5,7 +5,7 @@ import {
 	Math
 } from 'typescript-game-engine-client';
 import ColorComponent from "./components/ColorComponent";
-import SimpleEntityRenderer from "./components/SimpleEntityRenderer";
+import SimpleEntityRenderer from "./components/Simple2DEntityRenderer";
 
 /**
  * This is a UI component that is in charge of performing a simple 2D rendering on a canvas. It uses game state on
@@ -83,8 +83,8 @@ export default class My2DRenderer extends UIComponent {
 
 		// Iterate over the entities to draw them.
 		this.game.world.getEntities().forEach((ent: Entity) => {
-			// TODO: instead of getting explicitely the SimpleEntityRenderer, we should be able to retrieve all the
-			// entity renderers that were designed to work with My2DRenderer.
+			// TODO: instead of getting explicitly the SimpleEntityRenderer, we should be able to retrieve all the
+			// entity renderers available in the Entity that were designed to work with My2DRenderer.
 			var entityRendering = ent.getComponent(SimpleEntityRenderer);
 			if (entityRendering) {
 				entityRendering.draw(ctx, scale);
