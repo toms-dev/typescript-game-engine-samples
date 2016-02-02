@@ -10,5 +10,6 @@ export default class User extends Entity {
 
 		console.log("Instantiated user!");
 		this.addComponent(new SomePropertyComponent());
+		$()
 	}
 }

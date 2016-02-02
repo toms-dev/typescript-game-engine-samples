@@ -3,7 +3,7 @@ import {IComponent, GameEvent} from "typescript-game-engine-client";
 import User from "../entities/User";
 
 
-export default class SomePropertyComponent implements IComponent {
+export default class FriendListComponent implements IComponent {
 
 	public owner: User;
 	public friends: User[];
