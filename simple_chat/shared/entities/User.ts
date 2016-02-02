@@ -1,5 +1,6 @@
 import {Declare, Entity, World, NamedEntityType} from "typescript-game-engine-server";
-import FriendList from "../components/FriendList";
+
+import FriendList from "./FriendList";
 
 @Declare.Entity
 export default class User extends Entity {
@@ -11,7 +12,7 @@ export default class User extends Entity {
 	public friendList: FriendList;
 
 	constructor(username: string) {
-		super(new NamedEntityType("DefaultEntity"));
+		super(new NamedEntityType("User"));
 		this.username = username;
 		this.friendList = new FriendList(this);
 	}

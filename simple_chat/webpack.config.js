@@ -16,8 +16,12 @@ module.exports = {
 	module: {
 		loaders: [
 			// all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
-			{ test: /\.ts$/, loader: 'babel-loader!ts-loader' }
+			{ test: /\.ts$/, loader: 'babel-loader!ts-loader' },
+			{ test: /\.json$/, loader: 'json'}
 			//{ test: /\.js$/, loader: 'babel-loader' }
 		]
+	},
+	ts: {
+		configFileName: "./client/client-tsconfig.json"
 	}
 };

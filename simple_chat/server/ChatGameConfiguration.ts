@@ -1,13 +1,13 @@
 import {Entity, Controller, IGameConfiguration} from "typescript-game-engine-server";
 
 import DefaultController from "./controllers/ChatMainController";
-import ChatService from "./entities/ChatService";
+import ChatService from "../shared/entities/ChatService";
 
 export default class ChatGameConfiguration implements IGameConfiguration<ChatService> {
 
 	createRootEntity(): ChatService {
 		var chatService = new ChatService();
-		var chatRoom = chatService.createRoom();
+		var chatRoom = chatService.createRoom("<3");
 		var user = chatService.createUser("Marmotte");
 		chatService.userJoinRoom(user, chatRoom);
 
@@ -15,6 +15,10 @@ export default class ChatGameConfiguration implements IGameConfiguration<ChatSer
 		chatRoom.newMessage("Hello!", user);
 
 		console.log("Setup done.");
+
+		setInterval(() => {
+			chatRoom.newMessage("I'm still here! ;)", user);
+		}, 2000);
 
 		return chatService;
 	}

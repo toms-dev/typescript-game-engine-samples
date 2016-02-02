@@ -13,6 +13,10 @@
     "watch": "webpack --watch",
     "webpack": "webpack"
   },
+  "derpfiles": [
+    "client/js/game/Main.ts",
+    "server/Main.ts"
+  ],
   "exclude": [
     "node_modules",
     "typings"

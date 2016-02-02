@@ -1,16 +1,15 @@
 node_modules
 typings
 
-server/*.js
-server/*.js.map
-server/*/*.js
-server/*/*.js.map
+server/**/*.js
+server/**/*.js.map
 
-client/js/game/*.js
-client/js/game/*.js.map
-client/js/game/*/*.js
-client/js/game/*/*.js.map
+client/js/game/**/*.js
+client/js/game/**/*.js.map
 
-client-build/js/game/*.js
+shared/**/*.js
+shared/**/*.js.map
+
+client-build/js/game/**/*.js
 
 npm-debug*

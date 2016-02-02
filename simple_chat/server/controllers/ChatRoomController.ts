@@ -1,6 +1,6 @@
 
 import {Controller, World, CommandRequestJSON} from "typescript-game-engine-server";
-import ChatRoom from "../entities/ChatRoom";
+import ChatRoom from "../../shared/entities/ChatRoom";
 
 /**
  * The controller used inside a chat room.

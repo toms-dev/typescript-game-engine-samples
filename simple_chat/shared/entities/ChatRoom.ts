@@ -5,16 +5,20 @@ import User from "./User";
 @Declare.Entity
 export default class ChatRoom extends Entity {
 
+	@Declare.Property
+	public name: string;
+
 	private _users: User[];
 
 	@Declare.PropertyReference
-	private derp: Entity;
+	private derpForGeneratingWarning: Entity;
 
 	@Declare.Property
 	private messages: string[];
 
-	constructor() {
+	constructor(name: string) {
 		super(new NamedEntityType("ChatRoom"));
+		this.name = name;
 		this._users = [];
 		this.messages = [];
 	}

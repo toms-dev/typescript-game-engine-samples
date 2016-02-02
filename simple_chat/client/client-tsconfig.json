@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "experimentalDecorators": true
+  },
+  "files": [
+    "js/game/Main.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "typings"
+  ]
+}

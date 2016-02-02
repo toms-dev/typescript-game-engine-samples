@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "jquery": "^2.2.0",
+    "json-loader": "^0.5.4",
     "typescript-game-engine-client": "file:..\\..\\client",
     "typescript-game-engine-server": "file:..\\..\\server",
     "webpack": "^1.12.12"

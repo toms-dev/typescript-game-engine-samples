@@ -1,7 +1,6 @@
 
 import {IComponent, GameEvent} from "typescript-game-engine-client";
-import User from "../entities/User";
-
+import User from "../../../../shared/entities/User";
 
 export default class FriendListComponent implements IComponent {
 

@@ -9,24 +9,27 @@ export default class ChatService extends Entity {
 	private _rooms: ChatRoom[];
 	private _users: User[];
 
+	@Declare.Property
+	private derp: string = "lol";
+
 	constructor() {
 		super(new NamedEntityType("ChatService"));
 		this._rooms = [];
 		this._users = [];
 	}
 
-	createRoom(): ChatRoom {
-		var room = new ChatRoom();
+	createRoom(roomName: string): ChatRoom {
+		var room = new ChatRoom(roomName);
 		this._rooms.push(room);
 		return room;
 	}
 
-	@Declare.Property
+	@Declare.PropertyEntity
 	get rooms(): ChatRoom[] {
 		return this._rooms;
 	}
 
-	@Declare.Property
+	@Declare.PropertyEntity
 	get users(): User[] {
 		return this._users;
 	}
@@ -35,10 +38,6 @@ export default class ChatService extends Entity {
 		var user = new User(username);
 		this._users.push(user);
 		return user;
-	}
-
-	getState(): any {
-		return super.getState();
 	}
 
 	userJoinRoom(user: User, chatRoom: ChatRoom): void {

@@ -1,8 +1,8 @@
 
 import {Controller, CommandRequestJSON} from "typescript-game-engine-server";
-import User from "../entities/User";
-import ChatRoom from "../entities/ChatRoom";
-import ChatService from "../entities/ChatService";
+import User from "../../shared/entities/User";
+import ChatRoom from "../../shared/entities/ChatRoom";
+import ChatService from "../../shared/entities/ChatService";
 import ChatRoomController from "./ChatRoomController";
 
 export default class ChatMainController extends Controller {

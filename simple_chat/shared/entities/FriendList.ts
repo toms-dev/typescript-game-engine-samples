@@ -1,9 +1,9 @@
 
 import {Declare, Entity, Components, NamedEntityType} from "typescript-game-engine-server";
-import User from "../entities/User";
+import User from "./User";
 
 @Declare.Entity
-export default class FriendList extends Entity { //} Components.IComponent {
+export default class FriendList extends Entity {
 
 	private owner: User;
 
