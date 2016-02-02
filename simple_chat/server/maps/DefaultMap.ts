@@ -8,19 +8,7 @@ import ChatRoom from "../entities/ChatRoom";
 export default class DefaultMap extends Map {
 
 	setup(world: World): void {
-		var chatRoom = new ChatRoom();
-		world.addEntity(chatRoom);
 
-		var user = new User("Marmotte");
-		world.addEntity(user);
-
-		chatRoom.userJoin(user);
-
-		console.log("Users:", chatRoom.users);
-
-		chatRoom.newMessage("Hello!", user);
-
-		console.log("Map setup done.");
 	}
 
 }

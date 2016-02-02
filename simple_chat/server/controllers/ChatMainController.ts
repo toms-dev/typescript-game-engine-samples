@@ -2,10 +2,17 @@
 import {Controller, CommandRequestJSON} from "typescript-game-engine-server";
 import User from "../entities/User";
 import ChatRoom from "../entities/ChatRoom";
+import ChatService from "../entities/ChatService";
+import ChatRoomController from "./ChatRoomController";
 
 export default class ChatMainController extends Controller {
 
-	private chatRoom: ChatRoom = new ChatRoom();
+	private chatService: ChatService;
+
+	constructor(chatService: ChatService) {
+		super();
+		this.chatService = chatService;
+	}
 
 	protected activate(now: number): void {
 	}
@@ -17,20 +24,30 @@ export default class ChatMainController extends Controller {
 		if (command.name == "COMMAND_LOGIN") {
 			var username = command.data.username;
 			this.createUser(username);
-			throw "Not implemented.";
+		}
+		else if (command.name == "COMMAND_JOIN_ROOM") {
+			var userID = command.data.userID,
+				roomID = command.data.roomID;
+			this.joinRoom(userID, roomID);
 		}
 	}
 
 	private createUser(username: string): void {
 		var user = new User(username);
 		this.world.addEntity(user);
-		//this.world.broadcastWorldEvent(new GameEvent(USER_LOGIN));
+		// TODO: this.world.broadcastWorldEvent(new GameEvent(USER_LOGIN));
+	}
+
+	private joinRoom(userID: number, chatRoomID: number): void {
+		var user = this.chatService.getUser(userID);
+		var room = this.chatService.getChatRoom(chatRoomID);
+
+		room.userJoin(user);
+		this.addChildController(new ChatRoomController(room));
 	}
 
 	getWorldState(): any {
-		return {
-			worldStatus: "loaded"
-		}
+		return this.chatService.getState();
 	}
 
 }
