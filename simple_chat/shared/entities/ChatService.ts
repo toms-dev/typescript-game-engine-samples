@@ -51,4 +51,11 @@ export default class ChatService extends Entity {
 		return this.getSubEntity(this._rooms, roomID);
 	}
 
+	removeUser(user: User): void {
+		var index = this._users.indexOf(user);
+		if (index == -1) {
+			throw new Error("User not found");
+		}
+		this._users.splice(index, 1);
+	}
 }

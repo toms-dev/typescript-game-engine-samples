@@ -10,7 +10,7 @@ export default class ClientUser extends User {
 
 	constructor(username: string) {
 		super(username);
-		console.log("THIS IS A LOCAL USER!!!!!!!");
+		console.debug("Local user!!!!!!! Name: "+username);
 	}
 
 }

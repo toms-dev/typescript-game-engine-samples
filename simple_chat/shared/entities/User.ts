@@ -8,7 +8,7 @@ export default class User extends Entity {
 	@Declare.Property
 	public username: string;
 
-	@Declare.Property
+	@Declare.PropertyEntity
 	public friendList: FriendList;
 
 	constructor(username: string) {

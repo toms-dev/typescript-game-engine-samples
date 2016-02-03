@@ -22,13 +22,8 @@ console.log("Hello world!");
 SharedDecorationContext.start();
 Loader.listen();
 // Import all the client entities here
-//import DefaultEntity from "./entities/User";
+// eg.: import DefaultEntity from "./entities/User";
 
-// Shared model
-//import ChatService from "../../../shared/entities/ChatService";
-
-import {Declare} from "typescript-game-engine-client";
-console.log("Declare root:", Object.keys(Declare));
 import ClientChatService from "./entities/ClientChatService";
 
 // Local entities
