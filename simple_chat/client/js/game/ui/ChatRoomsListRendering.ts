@@ -1,7 +1,7 @@
 
 import {UIComponent, Game, GameEvent} from "typescript-game-engine-client";
-import ChatService from "../../../shared/entities/ChatService";
-import ChatRoom from "../../../shared/entities/ChatRoom";
+import ChatService from "../../../../shared/entities/ChatService";
+import ChatRoom from "../../../../shared/entities/ChatRoom";
 
 export default class ChatRoomsListRendering extends UIComponent {
 

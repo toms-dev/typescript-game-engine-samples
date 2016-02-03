@@ -6,10 +6,9 @@ import {Game, Entity, GameEvent} from 'typescript-game-engine-client';
 import {Math} from 'typescript-game-engine-client';
 import {Loader} from 'typescript-game-engine-client';
 
-import {DecorationContext} from "typescript-game-engine-server";
+import {DecorationContext as SharedDecorationContext} from "typescript-game-engine-server";
 
 console.log("Hello world!");
-console.log("Got entity from framework: ", Entity);
 
 /**
  * This Main file shouldn't exist, or at least, should not be that long. Everything should be done in dedicated classes
@@ -20,15 +19,33 @@ console.log("Got entity from framework: ", Entity);
 // Load the entities with the Loader activated, otherwise, the framework will have a bad time unmarshalling your
 // entities!
 // TODO: replace this using by loadProject, using a loader like System.import. But that will add a callback in the flow.
-DecorationContext.start();
+SharedDecorationContext.start();
 Loader.listen();
 // Import all the client entities here
 //import DefaultEntity from "./entities/User";
-// And some server ones :)
-import ChatService from "../../../shared/entities/ChatService";
-import ChatRoomsListRendering from "./ChatRoomsListRendering";
 
-var sharedContext = DecorationContext.build();
+// Shared model
+//import ChatService from "../../../shared/entities/ChatService";
+
+import {Declare} from "typescript-game-engine-client";
+console.log("Declare root:", Object.keys(Declare));
+import ClientChatService from "./entities/ClientChatService";
+
+// Local entities
+// TODO: load all the entities automatically
+// HOW: automatically/recursively load all the files? => would not work because of webpack
+// only solution seems to be manual declaration
+// TODO: OR!!!! or make webpack package all classes even if they don't look like to be used
+// import syntax for side-effect (eg. decorators) :
+import "./entities/ClientUser";
+
+// Other client classes (ui, adapters)
+import ChatRoomsListRendering from "./ui/ChatRoomsListRendering";
+import NameInput from "./ui/NameInput";
+import ChatCommandAdapter from "./commands/ChatCommandAdapter";
+import UsersListRendering from "./ui/UsersListRendering";
+
+var sharedContext = SharedDecorationContext.build();
 
 //var classes = [DefaultEntity];
 var context = Loader.done();	// The context contains all the declarations that we performed during the loading.
@@ -37,11 +54,14 @@ var context = Loader.done();	// The context contains all the declarations that w
 var game = new Game();
 //game.fakeLocalLag = 500;
 //game.loadContext(context);
-game.rootEntity = new ChatService();
+game.rootEntity = new ClientChatService();
 game.sharedContext = sharedContext;
 game.start();
 
 game.addComponent(new ChatRoomsListRendering(game, <any> game.rootEntity));
+game.addComponent(new NameInput(game, "#chat_username"));
+game.addComponent(new UsersListRendering(game, <any> game.rootEntity, "#globalUsersList"));
+game.commandAdapters.push(new ChatCommandAdapter(game));
 
 // For some cheap tests in the browser console.
 (<any> window).game = game;

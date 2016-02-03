@@ -19,6 +19,9 @@ export default class ChatGameConfiguration implements IGameConfiguration<ChatSer
 		setInterval(() => {
 			chatRoom.newMessage("I'm still here! ;)", user);
 		}, 2000);
+		setInterval(() => {
+			chatService.createUser("auto_derp");
+		}, 2000);
 
 		return chatService;
 	}

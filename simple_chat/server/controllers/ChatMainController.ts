@@ -5,6 +5,8 @@ import ChatRoom from "../../shared/entities/ChatRoom";
 import ChatService from "../../shared/entities/ChatService";
 import ChatRoomController from "./ChatRoomController";
 
+import ChatCommands from "../../shared/ChatCommands";
+
 export default class ChatMainController extends Controller {
 
 	private chatService: ChatService;
@@ -21,11 +23,11 @@ export default class ChatMainController extends Controller {
 	}
 
 	protected receiveCommand(command: CommandRequestJSON): void {
-		if (command.name == "COMMAND_LOGIN") {
+		if (command.name == ChatCommands.SET_NAME) {
 			var username = command.data.username;
 			this.createUser(username);
 		}
-		else if (command.name == "COMMAND_JOIN_ROOM") {
+		else if (command.name == ChatCommands.JOIN_ROOM) {
 			var userID = command.data.userID,
 				roomID = command.data.roomID;
 			this.joinRoom(userID, roomID);
@@ -33,9 +35,8 @@ export default class ChatMainController extends Controller {
 	}
 
 	private createUser(username: string): void {
-		var user = new User(username);
-		this.world.addEntity(user);
-		// TODO: this.world.broadcastWorldEvent(new GameEvent(USER_LOGIN));
+		this.chatService.createUser(username);
+		// TODO:? this.world.broadcastWorldEvent(new GameEvent(USER_LOGIN));
 	}
 
 	private joinRoom(userID: number, chatRoomID: number): void {
