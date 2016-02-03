@@ -10,10 +10,12 @@ import ChatCommands from "../../shared/ChatCommands";
 export default class ChatMainController extends Controller {
 
 	private chatService: ChatService;
+	private user: User;
 
 	constructor(chatService: ChatService) {
 		super();
 		this.chatService = chatService;
+		this.user = null;
 	}
 
 	protected activate(now: number): void {
@@ -24,18 +26,18 @@ export default class ChatMainController extends Controller {
 
 	protected receiveCommand(command: CommandRequestJSON): void {
 		if (command.name == ChatCommands.SET_NAME) {
-			var username = command.data.username;
+			var username = command.data.newName;
 			this.createUser(username);
 		}
 		else if (command.name == ChatCommands.JOIN_ROOM) {
-			var userID = command.data.userID,
+			var userID = this.user.getGUID(),
 				roomID = command.data.roomID;
 			this.joinRoom(userID, roomID);
 		}
 	}
 
 	private createUser(username: string): void {
-		this.chatService.createUser(username);
+		this.user = this.chatService.createUser(username);
 		// TODO:? this.world.broadcastWorldEvent(new GameEvent(USER_LOGIN));
 	}
 
@@ -43,6 +45,7 @@ export default class ChatMainController extends Controller {
 		var user = this.chatService.getUser(userID);
 		var room = this.chatService.getChatRoom(chatRoomID);
 
+		console.log(user.username + " joined room "+room.name+"!");
 		room.userJoin(user);
 		this.addChildController(new ChatRoomController(room));
 	}

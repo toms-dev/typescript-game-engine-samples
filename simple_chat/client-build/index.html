@@ -5,6 +5,8 @@
 <body>
 
 <input type="text" id="chat_username" placeholder="Your username" />
+<button>DERP</button>
+<div id="derp">DERP</div>
 <div>
 	Chat Rooms
 	<ul id="roomsList"><li>loading...</li></ul>
@@ -21,6 +23,23 @@
 	</div>
 </div>
 
+<script>
+	$("button").click(function() {
+		console.log("DERPPP");
+	});
+	$(document).ready(function() {
+		var $link = $("<div>").text("room: ").attr("href","#");
+		$link.on('click', function(event) {
+			var eventData = {
+				roomID: r.getGUID
+			};
+			console.debug("Firing event");
+		});
+		setTimeout(function() {
+			$link.appendTo($("body"));
+		});
+	})
+</script>
 
 <script src="js/game/bundle.js"></script>
 </body>

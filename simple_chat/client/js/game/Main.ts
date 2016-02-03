@@ -15,7 +15,6 @@ console.log("Hello world!");
  * (maybe in a similar fashion than server's Maps).
  */
 // Do the custom libs imports
-
 // Load the entities with the Loader activated, otherwise, the framework will have a bad time unmarshalling your
 // entities!
 // TODO: replace this using by loadProject, using a loader like System.import. But that will add a callback in the flow.
@@ -47,7 +46,7 @@ var context = Loader.done();	// The context contains all the declarations that w
 
 // The user shouldn't have to do that.
 var game = new Game();
-//game.fakeLocalLag = 500;
+game.fakeLocalLag = 1000;
 //game.loadContext(context);
 game.rootEntity = new ClientChatService();
 game.sharedContext = sharedContext;

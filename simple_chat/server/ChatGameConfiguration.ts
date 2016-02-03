@@ -1,6 +1,6 @@
 import {Entity, Controller, IGameConfiguration} from "typescript-game-engine-server";
 
-import DefaultController from "./controllers/ChatMainController";
+import ChatMainController from "./controllers/ChatMainController";
 import ChatService from "../shared/entities/ChatService";
 
 export default class ChatGameConfiguration implements IGameConfiguration<ChatService> {
@@ -30,7 +30,7 @@ export default class ChatGameConfiguration implements IGameConfiguration<ChatSer
 	}
 
 	createRootController(rootEntity: ChatService): Controller {
-		return new DefaultController(rootEntity);
+		return new ChatMainController(rootEntity);
 	}
 
 }

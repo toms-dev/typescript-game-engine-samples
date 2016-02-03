@@ -13,6 +13,7 @@ module.exports = {
 		//extensions: ['', '.webpack.js', '.web.js', '.js', '.ts', '.tsx']
 		extensions: ['', '.js', '.ts', '.tsx']
 	},
+	resolveLoader: { fallback: path.join(__dirname, "node_modules") },
 	module: {
 		loaders: [
 			// all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`

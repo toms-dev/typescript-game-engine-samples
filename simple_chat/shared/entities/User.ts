@@ -15,6 +15,7 @@ export default class User extends Entity {
 		super(new NamedEntityType("User"));
 		this.username = username;
 		this.friendList = new FriendList(this);
+		console.log("Created user:"+this.username);
 	}
 
 }
