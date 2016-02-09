@@ -28,7 +28,7 @@ export default class My2DRenderer extends UIComponent {
 	 */
 	public setup(): void {
 		this.$canvas = $("#gameView");
-		this.$canvas.on('click', (e: MouseEvent) => {
+		this.$canvas.on(['click'], (e: MouseEvent) => {
 			// TODO: reuse camera stuff from piratefight?
 			var x: number;
 			var y: number;

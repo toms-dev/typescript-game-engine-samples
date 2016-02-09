@@ -16,7 +16,7 @@ export default class MyBox extends Entity {
 	public derp = "lol";
 
 	constructor(boxColor:string) {
-		super(null, new NamedEntityType("MyBox"));
+		super(new NamedEntityType("MyBox"));
 		var colorComponent = new ColoredComponent(this, boxColor);
 		this.addComponent(colorComponent);
 		var movement = new Components.Generic.Movement();
@@ -40,4 +40,8 @@ export default class MyBox extends Entity {
 		return 42;
 	}
 
+
+	tick(delta: number, now: number): void {
+		super.tick(delta, now);
+	}
 }

@@ -29,6 +29,7 @@ export default class PathComponent extends Component {
 	tick(delta:number, now:number):void {
 		if (!this.movement.hasTarget()) {
 			var nextTargetIndex = this.activeTarget++ % this.targets.length;
+			console.log("New target "+nextTargetIndex);
 			this.movement.moveTo(this.targets[nextTargetIndex]);
 		}
 	}
