@@ -4,9 +4,14 @@
     "target": "es5",
     "sourceMap": true,
     "noImplicitAny": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "allowUnreachableCode": true
   },
+  "files": [
+    "js/Main.ts"
+  ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "typings"
   ]
 }
