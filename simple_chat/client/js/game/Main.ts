@@ -46,7 +46,7 @@ var context = Loader.done();	// The context contains all the declarations that w
 
 // The user shouldn't have to do that.
 var game = new Game();
-game.fakeLocalLag = 1000;
+game.fakeLocalLag = 0;
 //game.loadContext(context);
 game.rootEntity = new ClientChatService();
 game.sharedContext = sharedContext;
