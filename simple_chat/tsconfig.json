@@ -18,8 +18,13 @@
     "client/js/game/Main.ts",
     "server/Main.ts"
   ],
+  /*"files": [
+    "client/js/game/Main.ts",
+    "server/Main.ts"
+  ],*/
   "exclude": [
     "node_modules",
-    "typings"
+    "typings/main",
+    "typings/main.d.ts"
   ]
 }

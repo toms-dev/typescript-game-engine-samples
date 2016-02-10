@@ -1,10 +1,13 @@
 
 import {Declare, Components, Math as MathUtils} from "typescript-game-engine-server";
 
-import {IComponent, Component, ComponentBag} from "typescript-game-engine-server/lib/components";
+//import {IComponent, Component, ComponentBag} from "typescript-game-engine-server/dist/lib/components";
+
+import Component = Components.Component;
+import Movement = Components.CommonComponents.Movement;
 
 import Vector3 = MathUtils.Vector3;
-import {Movement} from "typescript-game-engine-server/lib/components/generic/";
+//import {Movement} from "typescript-game-engine-server/lib/components/generic/";
 
 
 @Declare.Component

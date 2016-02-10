@@ -12,7 +12,8 @@
   },
   "exclude": [
     "node_modules",
-    "typings",
+    "typings/browser",
+    "typings/browser.d.ts",
     "piratefight",
     "samples/piratefight",
     "samples/movingboxes/client"

@@ -1,4 +1,4 @@
-import {Declare} from "typescript-game-engine-server";
+import {Declare, Entity} from "typescript-game-engine-server";
 
 import ChatService from "../../../../shared/entities/ChatService";
 

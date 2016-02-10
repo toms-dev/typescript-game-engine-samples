@@ -1,5 +1,5 @@
 // The following reference is commented because of identifiers duplication for node libs. Waiting for a fix :(
-///- <reference path="../../typings/browser.d.ts" />
+//- <reference path="../../typings/browser.d.ts" />
 
 // Do the framework imports
 import {Game, Entity, GameEvent} from 'typescript-game-engine-client';

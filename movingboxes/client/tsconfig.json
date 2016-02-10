@@ -8,8 +8,10 @@
     "allowUnreachableCode": true
   },
   "files": [
-    "js/Main.ts"
-  ],
+    "js/Main.ts",
+    "typings/browser.d.ts"
+  ]
+  ,
   "exclude": [
     "node_modules",
     "typings"

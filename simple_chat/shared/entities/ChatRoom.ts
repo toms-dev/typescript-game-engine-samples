@@ -34,6 +34,7 @@ export default class ChatRoom extends Entity {
 
 	newMessage(text: string, author: User): void {
 		this.messages.push(author.username + " says: "+text);
+		// TODO: this.fireEvent();
 	}
 
 }
