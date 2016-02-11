@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "dummy-typescript-game-engine-server": "file:./node_modules/typescript-game-engine-server/typings.json"
+    "typescript-game-engine-server": "file:./node_modules/typescript-game-engine-server/typings.json"
   },
   "devDependencies": {},
   "ambientDependencies": {
