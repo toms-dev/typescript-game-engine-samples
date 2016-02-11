@@ -6,8 +6,11 @@ import ColoredComponent from "../components/ColoredComponent";
 import ColorChanger from "../components/ColorChanger";
 import PathComponent from "../components/PathComponent";
 
-import {Vector3} from "typescript-game-engine-server/dist/lib/math/";
-import NameComponent from "../components/NameComponent";	// TODO: fix include path?
+//import {MathUtils} from "typescript-game-engine-server"; ///dist/lib/math/";
+import NameComponent from "../components/NameComponent";
+import {MathUtils} from "typescript-game-engine-server";	// TODO: fix include path?
+
+var Vector3 = MathUtils.Vector3;
 
 @Declare.Entity
 export default class MyBox extends Entity {

@@ -1,5 +1,5 @@
 
-import {Declare, Components, Math as MathUtils} from "typescript-game-engine-server";
+import {Declare, Components, MathUtils} from "typescript-game-engine-server";
 
 //import {IComponent, Component, ComponentBag} from "typescript-game-engine-server/dist/lib/components";
 

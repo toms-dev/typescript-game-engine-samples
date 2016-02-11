@@ -2,7 +2,7 @@
 
 
 import {Declare, Components, Entity} from "typescript-game-engine-server";
-import Component from "typescript-game-engine-server/dist/lib/components/Component"; //= Components.Component;
+import Component from "../../node_modules/typescript-game-engine-server/dist/lib/components/Component.d"; //= Components.Component;
 
 /**
  * This server-side components makes a colored component change color on user input.
