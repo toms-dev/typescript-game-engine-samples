@@ -1,7 +1,3 @@
-// <reference path="../typings/tsd.d.ts" />
-// This reference is needed if compiling for AMD. It will crash stuff if used on CommonJS.
-// <reference path="../node_modules/typescript-game-engine-client/typings.d.ts" />
-
 /**
  * This Main file shouldn't exist, or at least, should not be that long. Everything should be done in dedicated classes
  * (maybe in a similar fashion than server's Maps).
