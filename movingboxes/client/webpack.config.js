@@ -29,7 +29,7 @@ module.exports = {
 			{ test: /\.ts$/, loader: 'ts-loader' },
 
 			// Handle externally generated sourcemaps. Not needed if compiled with a clean copy of the client engine.
-			{ test: /\.js.map$/, loader: 'json-loader' }
+			//{ test: /\.js.map$/, loader: 'json-loader' }
 		]
 	}
 };

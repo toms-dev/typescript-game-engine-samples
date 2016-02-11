@@ -2,6 +2,7 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es5",
+    "outDir": "./dist",
     "sourceMap": true,
     "noImplicitAny": true,
     "experimentalDecorators": true,
@@ -11,9 +12,9 @@
     "js/Main.ts",
     "typings/browser.d.ts"
   ]
-  ,
+  /*,
   "exclude": [
     "node_modules",
     "typings"
-  ]
+  ]*/
 }

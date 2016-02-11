@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "dummy-typescript-game-engine-server": "file:./node_modules/typescript-game-engine-server/typings.json"
+  },
+  "devDependencies": {},
+  "ambientDependencies": {
+    "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#aee0039a2d6686ec78352125010ebb38a7a7d743",
+    "websocket": "github:DefinitelyTyped/DefinitelyTyped/websocket/websocket.d.ts#56532a6b84a85f0bede3f0d5582d838cad6ff563",
+    "reflect-metadata": "file:./node_modules/typescript-game-engine-server/node_modules/reflect-metadata/reflect-metadata.d.ts"
+  }
+}

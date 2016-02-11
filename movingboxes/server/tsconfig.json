@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
+    "outDir": "./dist",
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
@@ -10,7 +11,12 @@
     "emitDecoratorMetadata": true,
     "allowUnreachableCode": true
   },
+  "files": [
+    "src/Main.ts",
+    "typings/main.d.ts"
+  ],
   "exclude": [
+    "dist",
     "node_modules",
     "typings/browser",
     "typings/browser.d.ts",
